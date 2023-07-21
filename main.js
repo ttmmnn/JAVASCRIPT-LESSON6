@@ -20,4 +20,23 @@ const coffee = {
 const coffee3 = {
   name: 'Caffe Latte',
 };
-console.log(coffee === coffee3); //内容が同じだが、データアドレスが違うので、falseになる
+// console.log(coffee === coffee3); //内容が同じだが、データアドレスが違うので、falseになる
+
+//クロージャーを使って、プライベート変数を作る方法
+let generatePerson = (name) => {
+  let age = 0;
+  return {
+    getName: () => name,
+    getAge: () => age,
+    incrementAge: () => {
+      age += 1;
+      // return age;
+    },
+  };
+};
+const yoshipi = generatePerson('Yoshipi');
+console.log(yoshipi.getAge());
+yoshipi.incrementAge();
+yoshipi.incrementAge();
+console.log(yoshipi.getAge());
+console.log(yoshipi.getName());
