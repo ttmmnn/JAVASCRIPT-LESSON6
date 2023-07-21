@@ -40,3 +40,42 @@ yoshipi.incrementAge();
 yoshipi.incrementAge();
 console.log(yoshipi.getAge());
 console.log(yoshipi.getName());
+const tom = generatePerson('Tom');
+tom.incrementAge();
+tom.incrementAge();
+tom.incrementAge();
+console.log(tom.getAge());
+console.log(tom.getName());
+
+let createCounter = () => {
+  let count = 0;
+  return () => {
+    count += 1;
+    // debugger;
+    return count;
+  };
+};
+const counter = createCounter();
+counter();
+
+//再帰関数について 効率よくループ処理を行う
+//factorialとは階乗という意味　３! = 3 * 2 * 1
+let factorial = function fact(n) {
+  if (n === 0) return 1;
+  return n * fact(n - 1);
+};
+console.log(factorial(3));
+console.log(factorial(5));
+console.log(factorial(0));
+
+//実行コンテキスト（execution context)
+const c = () => {
+  return 'hello';
+};
+const b = () => {
+  return c();
+};
+const a = () => {
+  return b();
+};
+a();
